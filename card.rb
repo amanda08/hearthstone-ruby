@@ -1,11 +1,11 @@
 #!/usr/local/bin/ruby
 
 class Card
-  attr_reader :name, :health, :attack
+  attr_accessor :name, :health, :attack
   def initialize (name, health, attack)
     @name = name
-    @health = health
-    @attack = attack
+    @health = health.to_i
+    @attack = attack.to_i
   end
 
   def take_damage (value)
@@ -13,7 +13,7 @@ class Card
   end
 
   def status 
-    if @health > 0 
+    if is_alive?
       "#{@name}'s health = #{@health}"
     else 
       "#{@name} is DEAD!"
@@ -21,7 +21,7 @@ class Card
   end
 
   def is_alive?
-    @health > 0 ? true : false
+    @health > 0
   end
 
   def stats
@@ -29,12 +29,12 @@ class Card
   end
 end
 
-sylvanas = Card.new("Sylvanas", 5, 5)
-puts sylvanas.stats
-puts "Takes 2 damage!"
-sylvanas.take_damage(2)
-puts sylvanas.stats
+# sylvanas = Card.new("Sylvanas", 5, 5)
+# puts sylvanas.stats
+# puts "Takes 2 damage!"
+# sylvanas.take_damage(2)
+# puts sylvanas.stats
 
 
-puts "Hello Hearthstone!"
+# puts "Hello Hearthstone!"
 
