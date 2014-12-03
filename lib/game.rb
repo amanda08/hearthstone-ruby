@@ -1,6 +1,6 @@
-#!/usr/local/bin/ruby
-require './deck'
-require './player'
+require_relative './deck'
+require_relative './player'
+require_relative './ascii_output'
 
 class Game
   attr_accessor :deck
@@ -13,31 +13,34 @@ class Game
   end
 
   def play
-    while @deck.count > 1 
-      match
+    while true
+      puts "New match!"
+      # players_draw_cards?
+      @card_a = @deck.deal_card
+      @card_b = @deck.deal_card
+      pause_for_effect
+      puts @player1.name + ": "
+      display_card(@card_a)
+      puts @player2.name + ": "
+      display_card(@card_b)
+      battle
+      add_score
+      puts @player1.name + ": " + @player1.score.to_s
+      puts @player2.name + ": " + @player2.score.to_s
+      break if @deck.count < 2
+      puts "Press ENTER to draw again."
+      gets
     end
     outcome
   end
 
-  private
-
   def match
-    puts "New match!"
-    @card_a = @deck.deal_card
-    @card_b = @deck.deal_card
-    pause_for_effect
-    puts @player1.name + ": " + @card_a.stats
-    puts "vs #{@player2.name}: #{@card_b.stats}"
-    battle
-    add_score
-    puts @player1.name + ": " + @player1.score.to_s
-    puts @player2.name + ": " + @player2.score.to_s
-    gets
+    
   end
 
   def battle
     while @card_a.is_alive? && @card_b.is_alive? do
-      puts "Let's play!"
+      display_message("battle")
       @card_a.take_damage(@card_b.attack)
       @card_b.take_damage(@card_a.attack)
       puts @card_a.status
@@ -63,7 +66,7 @@ class Game
 
   def scrum
     puts "Both players are too weak - it's Scrum time!"
-    scrum_message
+    display_message("scrum")
     pause_for_effect
     num = rand(2)
     temp_deck = Deck.new
@@ -78,20 +81,51 @@ class Game
     end
   end
 
-  def scrum_message
-    File.open("sword.txt").each do |line|
+  def display_card(card)
+    if card.ascii?
+      display_ascii_by_line(card.ascii_filename,card.ascii_color)
+      puts card.stats
+    else
+      puts card.stats
+    end
+  end
+
+  def display_message(string)
+    case string
+    when "scrum"
+      display_ascii_by_line("sword.txt", 32)
+    when "winner"
+      display_ascii_by_line("winner.txt", 35)
+    when "fireworks"
+      display_ascii_by_line("fireworks.txt", 36)
+    when "battle"
+      print "\e[01;33m"
+      print "Time to battle!"
+      3.times { print "." ; sleep(0.1) }
+      puts "\e[0m"
+    else 
+      puts "message #{string} not found"
+    end  
+  end
+
+  def display_ascii_by_line(filename, colorcode)
+    print "\e[01;#{colorcode}m"
+    File.open("data/"+filename).each do |line|
       print "#{line}"
       sleep(0.1)
     end
+    puts "\e[0m"
   end
 
   def outcome
     if @player1.score > @player2.score
-      @player1.name + " is the winner!"
-    elsif @player1 == @player2
-      "It's a draw!" 
+      puts "#{@player1.name} is the winner!"
+      display_message("winner")
+    elsif @player1.score == @player2.score
+      puts "It's a draw!" 
     else
-      @player2.name + " is the winner!"
+      puts "#{@player2.name} is the winner!"
+      display_message("fireworks")
     end
   end
 end

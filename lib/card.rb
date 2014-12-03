@@ -1,11 +1,11 @@
-#!/usr/local/bin/ruby
-
 class Card
-  attr_accessor :name, :health, :attack
-  def initialize (name, health, attack)
-    @name = name
-    @health = health.to_i
-    @attack = attack.to_i
+  attr_reader :name, :health, :attack
+
+  def initialize (args)
+    @name = args["name"]
+    @health = args["health"].to_i # converts nil values to 0
+    @attack = args["attack"].to_i # converts nil values to 0
+    @args = args
   end
 
   def take_damage (value)
@@ -20,6 +20,18 @@ class Card
     end
   end
 
+  def ascii_color
+    @args["ascii_colorcode"] || 32
+  end
+
+  def ascii?
+    @args.has_key?("ascii_filename")
+  end
+
+  def ascii_filename
+    @args["ascii_filename"]
+  end
+
   def is_alive?
     @health > 0
   end
@@ -27,6 +39,7 @@ class Card
   def stats
     "#{@name} (#{@attack}, #{@health})"
   end
+
 end
 
 # sylvanas = Card.new("Sylvanas", 5, 5)

@@ -1,0 +1,26 @@
+[{
+        "name": "Ragnaros the Firelord",
+        "message": "",
+        "file": "ragnaros.txt", 
+        "color-code": 31
+    },
+    {
+        "name": "King Krush",
+        "message": "",
+        "file": "king_krush.txt",
+        "color-code": 35
+    },
+    {
+        "name": "Angry Chicken",
+        "message": "",
+        "file": "angry_chicken.txt",
+        "color-code": 32
+    },
+    {
+        "name": "Winner",
+        "message" "",
+        "file": "winner_ascii.txt",
+        "color-code": 21
+        }
+        
+        ]

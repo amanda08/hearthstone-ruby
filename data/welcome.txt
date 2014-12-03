@@ -1,0 +1,17 @@
+        __________________________________________________________
+       |\=========================================================/|
+       ||                                                         ||
+       ||   How it works:                                         ||
+       ||   =============                                         ||
+       ||   Each player is dealt two cards.                       ||
+       ||   Each card has an attack value and health value        ||
+       ||   These are shown in brackets (a,h)                     ||
+       ||   The two cards battle to the death!                    ||
+       ||   The remains of the surviving card's health are added  ||
+       ||   to it's player's score.                               ||
+       ||   Play continues until all cards are played.            ||
+       ||                                                         ||
+       ||   Let's play!                                           ||
+       ||                                                         ||
+       |/=========================================================\|
+        -----------------------------------------------------------

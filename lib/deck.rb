@@ -1,5 +1,5 @@
 #!/usr/local/bin/ruby
-require './card'
+require_relative './card'
 require 'json'
 
 class Deck
@@ -21,19 +21,18 @@ class Deck
     num = rand(@contents.length - 1)
     card = @contents[num]
     @contents.delete_at(num)
-    check_card
+    # move refactoring pattern??
     card
   end
 
   def get_cards
-    card_library = JSON.parse(File.read("cards.json"))["cards"].find_all{|card| card["category"] == "minion"}
+    card_library = JSON.parse(File.read("data/cards.json"))["cards"].find_all{|card| card["category"] == "minion"}
     while @contents.size < 13
       card = card_library.sample
-      @contents << Card.new(card["name"], card["health"], card["attack"])
+      @contents << Card.new(card)
     end
   end
 
-  def check_card
-  end
+  
 
 end

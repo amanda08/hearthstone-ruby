@@ -781,6 +781,8 @@
         "mana": 1,
         "attack": 2,
         "health": 1,
+        "ascii_colorcode": 30,
+        "ascii_filename": "tribal.txt",
         "collectible": true,
         "effect_list": [
           {
@@ -1105,6 +1107,8 @@
         "mana": 0,
         "attack": 1,
         "health": 1,
+        "ascii_colorcode": 34,
+        "ascii_filename": "wisp.txt",
         "collectible": true,
         "effect_list": [
 
@@ -2533,6 +2537,8 @@
         "mana": 9,
         "attack": 8,
         "health": 8,
+        "ascii_colorcode": 33,
+        "ascii_filename": "dragon.txt",
         "collectible": true,
         "effect_list": [
           {
@@ -2611,6 +2617,8 @@
         "mana": 8,
         "attack": 8,
         "health": 8,
+        "ascii_colorcode": 31,
+        "ascii_filename": "ragnaros.txt",
         "collectible": true,
         "effect_list": [
 
@@ -2873,6 +2881,8 @@
         "mana": 9,
         "attack": 8,
         "health": 8,
+        "ascii_colorcode": 33,
+        "ascii_filename": "dragon.txt",
         "collectible": true,
         "effect_list": [
 
@@ -3029,6 +3039,8 @@
         "mana": 9,
         "attack": 4,
         "health": 12,
+        "ascii_colorcode": 33,
+        "ascii_filename": "dragon.txt",
         "collectible": true,
         "effect_list": [
           {
@@ -4242,6 +4254,8 @@
         "mana": 9,
         "attack": 8,
         "health": 8,
+        "ascii_colorcode": 33,
+        "ascii_filename": "dragon.txt",
         "collectible": true,
         "effect_list": [
           {
@@ -6131,6 +6145,8 @@
         "mana": 10,
         "attack": 12,
         "health": 12,
+        "ascii_colorcode": 33,
+        "ascii_filename": "dragon.txt",
         "collectible": true,
         "effect_list": [
           {
@@ -8165,6 +8181,8 @@
         "mana": 9,
         "attack": 8,
         "health": 8,
+        "ascii_colorcode": 32,
+        "ascii_filename": "king_krush.txt",
         "collectible": true,
         "effect_list": [
           {
@@ -8375,6 +8393,8 @@
         "mana": 9,
         "attack": 4,
         "health": 12,
+        "ascii_colorcode": 33,
+        "ascii_filename": "dragon.txt",
         "collectible": true,
         "effect_list": [
 
@@ -9683,6 +9703,8 @@
         "mana": 1,
         "attack": 1,
         "health": 1,
+        "ascii_colorcode": 32,
+        "ascii_filename": "angry_chicken.txt",
         "collectible": true,
         "effect_list": [
           {
@@ -9779,6 +9801,8 @@
         "mana": 6,
         "attack": 5,
         "health": 5,
+        "ascii_colorcode": 35,
+        "ascii_filename": "female.txt",
         "collectible": true,
         "effect_list": [
           {
@@ -10164,7 +10188,10 @@
         "mana": 5,
         "attack": 3,
         "health": 5,
+        "ascii_colorcode": 48,
+        "ascii_filename": "ghostbusters.txt",
         "collectible": true,
+
         "effect_list": [
             {
                 "effect": "taunt",

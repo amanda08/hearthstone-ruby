@@ -1,0 +1,20 @@
+#!/Users/amandaneumann/.rbenv/shims/ruby
+#!/usr/bin/env ruby
+
+require_relative '../lib/game'
+
+puts "Welcome to Hearthstone Ruby!"
+print "\e[01;36m"
+  File.open('./data/welcome.txt').each do |line|
+    print "#{line}"
+    sleep(0.1)
+  end
+  puts "\e[0m"
+while true
+  puts "Ready to play? (y/n)"
+  response = gets.chomp
+  break if response == "n"
+  game = Game.new
+  puts "Drawing cards..."
+  game.play
+end
